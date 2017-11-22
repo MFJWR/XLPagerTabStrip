@@ -41,6 +41,7 @@ public enum SelectedBarVerticalAlignment {
     case top
     case middle
     case bottom
+    case any(CGFloat)
 }
 
 open class ButtonBarView: UICollectionView {
@@ -178,6 +179,8 @@ open class ButtonBarView: UICollectionView {
             selectedBarFrame.origin.y = (frame.size.height - selectedBarHeight) / 2
         case .bottom:
             selectedBarFrame.origin.y = frame.size.height - selectedBarHeight
+        case .any(let height):
+            selectedBarFrame.origin.y = height
         }
 
         selectedBarFrame.size.height = selectedBarHeight
